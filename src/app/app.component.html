@@ -29,7 +29,7 @@
             <a class="nav-link" *ngIf="!authService.isAuthenticated()"  routerLink="/signup">SignUp</a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" *ngIf="authService.isAuthenticated()"  routerLink="/">My Tvshark</a>
+            <a class="navbar-brand" *ngIf="authService.isAuthenticated()"  routerLink="/dashboard">My Tvshark</a>
           </li>
           <li class="nav-item">
             <a class="navbar-brand" *ngIf="authService.isAuthenticated()" (click)="onLogout()" routerLink="/">Logout</a>
