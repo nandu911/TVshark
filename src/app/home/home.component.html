@@ -1,0 +1,80 @@
+ 
+  <body>
+  
+    <!-- Navigation -->
+  <section *ngIf="authservice.isAuthenticated()">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="p-5" routerLink="/dashboard">
+                <img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <h2 class="display-4">{{username}}</h2>
+                <p> See your Favorite movies, ratings and profile !!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5" routerLink="/moviedisplay">
+              <img class="img-fluid rounded-circle" src="assets/img/01.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">All TV Shows</h2>
+              <p>The good the bad, the best the worst, find all TV shows released since 2000. Start Exploring !! </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="p-5" routerLink="/search">
+              <img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-5">
+              <h2 class="display-4">Search</h2>
+              <p> Search shows from our database </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5" routerLink="/contact">
+              <img class="img-fluid rounded-circle" src="assets/img/03.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5" >
+              <h2 class="display-4">Got a Question ?</h2>
+              <p>Wanna suggest or report something ? Find us here. We are listening!  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  
+    <!-- Bootstrap core JavaScript -->
+  
+  </body>

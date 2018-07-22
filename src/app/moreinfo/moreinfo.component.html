@@ -1,0 +1,150 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Heroic Features - Start Bootstrap Template</title>
+
+
+  </head>
+
+  <body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Jumbotron Header -->
+     <!--Jumbotron-->
+<div class="row mb-5">
+    <div class="col-md-12">
+        <div class="card card-image" [style.background-image]="'url(' + tvShow.image.original + ')'" [ngStyle]="{  'background-size': 'cover','background-repeat': 'no-repeat'} ">
+            <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+                <div class="py-5">
+
+                    <!--Content-->
+                    <div class="disp">
+                        <h1 class="display-3"><mark>{{tvShow.name}}</mark></h1>
+                    </div>
+                        
+                        <h2 class="card-title pt-3 mb-5 font-bold">{{tvShow.language | uppercase }} | Rating : {{tvShow.rating.average}} | {{tvShow.network.country.name | uppercase }}</h2>
+                        <p class="lead">{{tvShow.summary}}</p>
+                        <hr>
+                        <button *ngIf="authService.isAuthenticated() && fav" class="btn btn-primary" (click)="addToFav()" style="float:right">{{favmsg}}</button>
+                        <hr>
+                        <button *ngIf="authService.isAuthenticated() && !fav" class="btn btn-primary" (click)="removeFav()" style="float:right">{{favmsg}}</button>
+                        <hr>
+                        <a href="https://www.imdb.com/title/{{tvShow.externals.imdb}}" class="btn btn-primary btn-lg" target="_blank">Go to Imdb</a>
+                        <br><br><hr>
+                        <a href="{{tvShow.officialSite}}" class="btn btn-success btn-block" target="_blank">Stream Now on Official Site</a>
+                    <!--Content-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Jumbotron-->
+</div>
+
+<!-- Cast block-->
+<div class="container"  style="background-image: url(assets/img/03.jpg); color:aliceblue" [ngStyle]="{  'background-size': 'cover','background-repeat': 'no-repeat'} "  >
+
+        <!-- Introduction Row -->
+        <h1 class="my-4">Cast
+          <small>of the show</small>
+        </h1>
+        <p></p>
+  
+        <!-- Cast list -->
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="my-4"></h2>
+            <pagination-controls (pageChange)="page2 = $event" id="2"
+  
+            maxSize="10"
+    
+            directionLinks="true"
+    
+            autoHide="true">
+    
+           </pagination-controls>
+          </div>
+         
+         
+          <div class="col-lg-4 col-sm-6 text-center mb-4" *ngFor="let casts of cast | paginate: {itemsPerPage: 9, currentPage:page2, id: '2'}; let i = index">
+            <a href="{{casts.person.url}}" target="_blank">
+                    <img class="img-fluid rounded-circle" src="{{casts.person.image.medium}}" alt="" target = "_blank" >
+            </a>
+            
+            <h4>Character: {{casts.character.name}}</h4>
+             <h5>Played By: {{casts.person.name}}</h5> 
+            <p>Country: {{casts.person.country.name}}</p>
+          </div>
+          <pagination-controls (pageChange)="page2 = $event" id="2"
+  
+          maxSize="8"
+  
+          directionLinks="true"
+  
+          autoHide="true">
+  
+         </pagination-controls>
+        </div>
+      
+      
+    </div>
+    <!-- /.container -->
+    
+    <!-- Episode List Block-->
+    <div class="container"  style="background-image: url(assets/img/03.jpg); color:aliceblue" [ngStyle]="{  'background-size': 'cover','background-repeat': 'no-repeat'} "  >
+
+            <!-- Introduction Row -->
+            <h2 class="my-4">List of All Episodes Aired till date
+              <small> Binge watch starts here</small>
+            </h2>
+            <p>Click on Episode to stream</p>
+      
+            <!-- Movies list -->
+            <div class="row">
+              <div class="col-lg-12">
+                <h2 class="my-4"></h2>
+                <pagination-controls (pageChange)="page = $event" id="1"
+      
+                maxSize="10"
+        
+                directionLinks="true"
+        
+                autoHide="true">
+        
+               </pagination-controls>
+              </div>
+             
+             
+              <div class="col-lg-4 col-sm-6 text-center mb-4" *ngFor="let episode of episodes | paginate: {itemsPerPage: 9, currentPage:page, id: '1'}; let i = index">
+                <a href="{{episode.url}}" target="_blank">
+                        <img class="lazyload" src="{{episode.image.medium}}" alt="" target = "_blank" >
+                </a>
+                
+                <h1>{{episode.name}}</h1>
+                <br>
+                 <h2>Season: <small>{{episode.season}}</small> Episode: <small>{{episode.number}}</small></h2> 
+                <br>
+                <p>Summary: {{episode.summary}}</p>
+              </div>
+              <pagination-controls (pageChange)="page = $event" id="1"
+      
+              maxSize="8"
+      
+              directionLinks="true"
+      
+              autoHide="true">
+      
+             </pagination-controls>`
+            </div>
+      
+          </div>
+  
+
+  </body>

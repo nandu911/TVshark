@@ -1,0 +1,76 @@
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Your Dashboard!</title>
+
+</head>
+
+<body>
+
+  <!-- Page Content -->
+  <div class="container" *ngIf="display">
+
+      <!-- Introduction Row -->
+      <h1 class="my-4">Your Favourite TV Shows!
+        <small>Perks of being a member ;)</small>
+      </h1>
+      <p>Click on Show to see more information or to remove from favourites</p>
+
+      <!-- Movies list -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="my-4"></h2>
+          <pagination-controls (pageChange)="page = $event" id="1"
+
+          maxSize="8"
+  
+          directionLinks="true"
+  
+          autoHide="true">
+  
+         </pagination-controls>
+        </div>
+       
+       
+        <div class="col-lg-4 col-sm-6 text-center mb-4" *ngFor="let movie of user | paginate: {itemsPerPage: 9, currentPage:page, id: '1'}; let i = index">
+          
+          <img class="lazyload" src="{{movie.image.medium}}" alt="" (click)="moreInfo(movie.id)">
+          <h3>{{movie.name}}</h3>
+          <br>
+          <h2>Rating: <small>{{movie.rating.average}}</small></h2> 
+          <br>
+          <p>Language: {{movie.language}}</p>
+        </div>
+        <pagination-controls (pageChange)="page = $event" id="1"
+
+        maxSize="8"
+
+        directionLinks="true"
+
+        autoHide="true">
+
+       </pagination-controls>`
+      </div>
+
+    </div>
+    <div class="container" *ngIf="!display">
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h1 class="my-4">No Favourite TV Shows found! :(
+          <small>Add atleast 3 shows as favourites to unlock this feature :p</small>
+        </h1>
+        <br>
+        <h2 class="my-4">Click on your favourite show and click 'Add to favourites' button </h2>
+        <hr>
+        <br>
+        <br>
+        <br>
+    </div>
+</body>
+

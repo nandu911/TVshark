@@ -1,0 +1,77 @@
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Landing Page - Start Bootstrap Theme</title>
+
+
+
+  <!-- Custom fonts for this template -->
+  <link href="/src/assets/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+
+</head>
+
+<body>
+<div class="form-group">
+
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Sign Up to add favourite TV shows, rate shows and more !</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form [formGroup]="signupForm" (ngSubmit)="signUp()" >
+            <div class="form-group">
+              <div class="col-12 col-md-12 mb-2 mb-md-0">
+                
+                <input  type="text" name="firstname" formControlName="firstname" class="form-control form-control-lg" placeholder="Enter your first name...">
+                <span *ngIf="!signupForm.get('firstname').valid && signupForm.get('firstname').touched " class="help-block"> First Name is required</span>
+                <br>
+                <input   type="text" name="lastname" formControlName="lastname" class="form-control form-control-lg" placeholder="Enter your last name...">
+                
+                <span *ngIf="!signupForm.get('lastname').valid && signupForm.get('lastname').touched " class="help-block"> Last Name is required</span>
+                <br>
+                <input   type="email" name="email" formControlName="email" class="form-control form-control-lg" placeholder="Enter your email Id...">
+                
+                <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched " class="help-block"> Please enter a valid email address</span>
+                <br>
+                <input   type="password" name="password" formControlName="password" (keyup)="passwordUpdate()"  class="form-control form-control-lg" placeholder="must be 6-10 characters long..">
+                
+                <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched " class="help-block"> Invalid Password</span>
+                <br>
+                <input  type="password" name="password2" formControlName="password2"  class="form-control form-control-lg" placeholder="Re-enter your password...">
+                <span *ngIf="!signupForm.get('password2').valid && signupForm.get('password2').touched " class="help-block">
+                 
+                  <span  *ngIf="signupForm.get('password2').errors['required']" class="help-block"> Please re enter password</span> <br>
+                <span *ngIf="signupForm.get('password2').errors['passwordsDonotMatch']" class="help-block">Passwords do not Match !</span>
+
+                </span>
+                
+                <br>
+                <hr>
+                <button  type="submit" class="btn btn-block btn-lg btn-primary">Signup!</button>
+                <hr>
+                <span class="help-block">{{signupMessage}}</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+</div>
+
+
+
+
+
+</body>
