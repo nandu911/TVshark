@@ -36,16 +36,18 @@ export class MoreinfoComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.emailLoggedIn = this.authService.getCurrentUser().email;
-          this.getLinkFirebase += this.emailLoggedIn.substring(0, this.emailLoggedIn.indexOf('.com'));
-          this.getLinkFirebase += '.json/?auth=';
-          console.log('current user email ' + this.emailLoggedIn);
-          this.getLinkFirebase += this.authService.getToken();
-          // console.log(this.getLink );
-          this.http.get(this.getLinkFirebase).subscribe( user => {
-            this.user = user;
-            console.log('inside subscribe ds:' + user);
-          });
+    if (this.authService.getCurrentUser() != null) {
+      this.emailLoggedIn = this.authService.getCurrentUser().email;
+      this.getLinkFirebase += this.emailLoggedIn.substring(0, this.emailLoggedIn.indexOf('.com'));
+      this.getLinkFirebase += '.json/?auth=';
+      console.log('current user email ' + this.emailLoggedIn);
+      this.getLinkFirebase += this.authService.getToken();
+      // console.log(this.getLink );
+      this.http.get(this.getLinkFirebase).subscribe( user => {
+        this.user = user;
+        console.log('inside subscribe ds:' + user);
+      });
+    }
     console.log('inside moreinfo init');
     console.log('inside more init :' + this.user);
    this.route.queryParams.subscribe(params => {
